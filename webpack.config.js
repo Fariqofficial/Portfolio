@@ -17,11 +17,12 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              '@babel/preset-env',
+              ['@babel/preset-env', { targets: { browsers: ['last 2 versions'] } }],
               [
                 '@babel/preset-react',
                 {
-                  runtime: 'automatic',
+                  runtime: 'classic',
+                  development: false,
                 },
               ],
               '@babel/preset-typescript',
