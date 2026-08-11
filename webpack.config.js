@@ -47,17 +47,17 @@ module.exports = {
       scriptLoading: 'blocking',
       templateContent: `
         <!DOCTYPE html>
-        <html>
+        <html style="height: 100%; width: 100%;">
           <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>Portfolio - RiqsuDev</title>
             <style>
-              html, body, #app-root { height: 100%; margin: 0; padding: 0; }
-              #app-root { display: flex; flex: 1; }
+              html, body { height: 100%; width: 100%; margin: 0; padding: 0; }
+              #app-root { display: flex; width: 100%; min-height: 100vh; flex-direction: column; }
             </style>
           </head>
-          <body>
+          <body style="height: 100%; width: 100%;">
             <div id="app-root"></div>
           </body>
         </html>
