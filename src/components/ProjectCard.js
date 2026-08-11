@@ -1,8 +1,18 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View, Linking } from "react-native";
 import { COLORS } from "../constants/colors";
 
+const resolveImageSource = (source) => {
+  if (typeof source === 'string') {
+    return { uri: source };
+  }
+  if (typeof source === 'object' && source !== null && source.default) {
+    return source.default;
+  }
+  return source;
+};
+
 export const ProjectCard = ({ project, isDark }) => (
-    <View
+  <View
     style={[
       styles.card,
       {
@@ -11,7 +21,7 @@ export const ProjectCard = ({ project, isDark }) => (
       },
     ]}
   >
-   <Text style={[styles.projectType, { color: isDark ? COLORS.textSecondary : COLORS.lightTextSecondary }]}>
+    <Text style={[styles.projectType, { color: isDark ? COLORS.textSecondary : COLORS.lightTextSecondary }]}>
       {project.type}
     </Text>
 
@@ -33,10 +43,10 @@ export const ProjectCard = ({ project, isDark }) => (
     }]}>Tech Stack</Text>
 
     <View style={styles.techRow}>
-      {project.tech.map((t, idx) => (
+      {project.tech && project.tech.map((t, idx) => (
         <Image
           key={idx}
-          source={typeof iconSource === 'string' ? { uri: t } : t}
+          source={resolveImageSource(t)}
           style={styles.icons}
           resizeMode="contain"
         />
@@ -109,7 +119,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   btnText: {
-    color: COLORS.textPrimary,
+    color: '#FFFFFF',
     fontWeight: '700',
     fontSize: 12,
   },
