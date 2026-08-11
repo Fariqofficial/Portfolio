@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: './',
+    publicPath: '',
   },
   module: {
     rules: [
@@ -18,7 +18,12 @@ module.exports = {
           options: {
             presets: [
               '@babel/preset-env',
-              '@babel/preset-react',
+              [
+                '@babel/preset-react',
+                {
+                  runtime: 'automatic',
+                },
+              ],
               '@babel/preset-typescript',
             ],
           },
@@ -27,7 +32,7 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
-      }
+      },
     ],
   },
   resolve: {
@@ -38,16 +43,17 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      scriptLoading: 'blocking',
       templateContent: `
         <!DOCTYPE html>
         <html>
           <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Portfolio</title>
+            <title>Portfolio - RiqsuDev</title>
             <style>
-              #app-root { display: flex; flex: 1; height: 100vh; }
-              body { margin: 0; padding: 0; height: 100%; overflow-x: hidden; }
+              html, body, #app-root { height: 100%; margin: 0; padding: 0; }
+              #app-root { display: flex; flex: 1; }
             </style>
           </head>
           <body>
@@ -55,7 +61,6 @@ module.exports = {
           </body>
         </html>
       `,
-      
     }),
   ],
   devServer: {
