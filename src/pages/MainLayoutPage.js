@@ -1,3 +1,4 @@
+import React from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { COLORS } from '../constants/colors';
 import { usePortfolioStore } from '../store/usePortfolioStore';

@@ -1,3 +1,4 @@
+import React from 'react';
 import { usePortfolioStore } from "../../store/usePortfolioStore";
 import { PORTFOLIO_DATA } from "../../constants/data";
 import { View } from "react-native";

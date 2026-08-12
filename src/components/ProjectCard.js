@@ -1,3 +1,4 @@
+import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View, Linking } from "react-native";
 import { COLORS } from "../constants/colors";
 

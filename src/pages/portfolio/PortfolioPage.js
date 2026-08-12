@@ -1,3 +1,4 @@
+import React from 'react';
 import { View, Text} from 'react-native';
 import { COLORS } from '../../constants/colors';
 import { PORTFOLIO_DATA } from '../../constants/data';
