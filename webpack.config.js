@@ -21,8 +21,7 @@ module.exports = {
               [
                 '@babel/preset-react',
                 {
-                  runtime: 'classic',
-                  development: false,
+                  runtime: 'automatic',
                 },
               ],
               '@babel/preset-typescript',
@@ -33,9 +32,6 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
-        generator: {
-          filename: 'static/media/[name].[hash:8][ext]',
-        },
       },
     ],
   },
